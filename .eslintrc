@@ -1,9 +1,9 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "tsconfigRootDir": "."
-  },
+  // "parser": "@typescript-eslint/parser",
+  // "parserOptions": {
+  //   "project": "./tsconfig.json",
+  //   "tsconfigRootDir": "."
+  // },
   "env": {
     "browser": true,
     "jest/globals": true
@@ -71,6 +71,10 @@
 
     "react-hooks/rules-of-hooks": "error",
     "no-useless-escape": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline": "off",
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-empty-function": "off",
 
     "prettier/prettier": [
       "error",
