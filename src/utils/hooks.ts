@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { axiosInstance } from '../axios'
 
 export const useFetchCancel = <T>(
@@ -8,6 +8,7 @@ export const useFetchCancel = <T>(
   params?: Record<string, any>
 ) => {
   const [data, setData] = useState(defaultData)
+  const [error, setError] = useState<AxiosError | null>(null)
 
   useEffect(() => {
     const source = axios.CancelToken.source()
@@ -22,11 +23,11 @@ export const useFetchCancel = <T>(
         if (code === '1') {
           setData(res.data.data)
         }
-      } catch (error) {
-        if (axios.isCancel(error)) {
+      } catch (err) {
+        if (axios.isCancel(err)) {
           // do nothing
         } else {
-          throw error
+          setError(err)
         }
       }
     }
@@ -37,5 +38,5 @@ export const useFetchCancel = <T>(
     }
   }, [])
 
-  return data
+  return { data, error }
 }

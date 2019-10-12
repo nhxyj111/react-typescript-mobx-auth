@@ -1,14 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { observer } from 'mobx-react-lite'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+// import { AxiosError } from 'axios'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
 import { AuthContext } from './context/auth'
 import PrivateRoute from './PrivateRoute'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import { RootStoreContext } from './stores/root'
+// import { axiosInstance } from './axios'
+// import { useFetchCancel } from './utils/hooks'
 
-const App: React.FC = () => {
+const App: React.FC = observer(() => {
   const [authToken, setAuthToken] = useState<string | null>(null)
+  const { errorStore } = useContext(RootStoreContext)
+
+  useEffect(() => {
+    errorStore.globalError = ''
+  }, [])
+
+  //
+  // const { data, error } = useFetchCancel<{ a: string }>('http://www.x.com', {
+  //   a: '',
+  // })
+  // if (error) console.log(error.message)
+  // if (error) console.log(((error as unknown) as AxiosError).message)
+
+  // axiosInstance
+  //   .post('http://www.ss.com', {
+  //     name: 'xxx',
+  //   })
+  //   .catch((err: AxiosError) => console.log(err.message))
 
   const setToken = (token: string) => {
     localStorage.setItem('token', token)
@@ -19,6 +42,7 @@ const App: React.FC = () => {
     <AuthContext.Provider value={{ authToken, setAuthToken: setToken }}>
       <Router>
         <div>
+          {errorStore.globalError ? errorStore.globalError : null}
           <ul>
             <li>
               <Link to="/">Home Page</Link>
@@ -35,6 +59,6 @@ const App: React.FC = () => {
       </Router>
     </AuthContext.Provider>
   )
-}
+})
 
 export default App
