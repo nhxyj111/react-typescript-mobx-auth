@@ -77,6 +77,8 @@
     "@typescript-eslint/no-empty-function": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "jsx-a11y/label-has-associated-control": "off",
+    "max-classes-per-file": "off", // todo
+    "jsx-a11y/anchor-is-valid": "off", // todo
 
     "prettier/prettier": [
       "error",
