@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 // import axios from 'axios'
 import { observer } from 'mobx-react-lite'
 import logoImg from '../logo.svg'
-import { Card, Logo, Form, Input, Button, Error } from '../components/AuthForm'
+import { Card, Logo, Form, Input, Button } from '../components/AuthForm'
 // import { useAuth } from '../context/auth'
 import { RootStoreContext } from '../stores/root'
 

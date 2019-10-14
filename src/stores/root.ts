@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import { createContext } from 'react'
 import { create } from 'mobx-persist'
 import { CounterStore } from './counter'
 import { ErrorStore } from './error'

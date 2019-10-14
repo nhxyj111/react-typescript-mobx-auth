@@ -75,6 +75,8 @@
     "react/jsx-curly-newline": "off",
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/label-has-associated-control": "off",
 
     "prettier/prettier": [
       "error",
