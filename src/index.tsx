@@ -8,8 +8,9 @@ import * as serviceWorker from './serviceWorker'
 // test for layout
 import HomepageLayout from './semantic/layouts/HomepageLayout'
 import LoginLayout from './semantic/layouts/LoginLayout'
+import AdminLayout from './semantic/layouts/AdminLayout'
 
-ReactDOM.render(<LoginLayout />, document.getElementById('root'))
+ReactDOM.render(<AdminLayout />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
